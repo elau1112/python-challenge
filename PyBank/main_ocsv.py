@@ -56,7 +56,7 @@ with open (csvpath, 'r') as csv_file:
     print("Greatest Decrease in Profits: " + str(min_pld[0]) + " ($" + str(min_pld[1]) + ")")
     print("'''")
 
-    output_path = os.path.join('Financial_Analysis1.csv')
+output_path = os.path.join('Financial_Analysis1.csv')
 with open(output_path, 'w', newline='') as fao1:
     csvwriter = csv.writer(fao1, delimiter=',')
     csvwriter.writerow(["Total Months", "Total", "Average Change", "Greatest Increase in Profits Time", "Greatest Increase in Profits", "Greatest Decrease in Profits Time", "Greatest Decrease in Profits"])

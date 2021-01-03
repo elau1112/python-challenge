@@ -64,8 +64,8 @@ with open (csvpath, 'r') as csv_file:
     print("Greatest Decrease in Profits: " + str(min_pld[0]) + " ($" + str(int(min_pld[1])) + ")") 
     print("'''")
 
-    output_path = os.path.join('Financial_Analysis.txt')
-    
+
+output_path = os.path.join('Financial_Analysis.txt')
 with open(output_path, 'w', newline='') as fao:    
 
     fao.write("----------------------------- \n")

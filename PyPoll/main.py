@@ -74,3 +74,19 @@ with open(csvpath2, 'r') as election_file:
     print(f"Winner: {winner}")
     print("---------------------")
     print("---")
+
+output_path = os.path.join("Election_Results.txt")
+with open(output_path, 'w', newline = '') as ero:
+
+    ero.write("--------------------- \n")
+    ero.write("Election Results \n")
+    ero.write("--------------------- \n")
+    ero.write(f"Total Votes: {total_votes} \n")
+    ero.write("--------------------- \n")
+    for r4 in range(candidates_len):
+        ero.write(f"{won_zip[r4][2]}: {format(won_zip[r4][0], '.3f')}% ({won_zip[r4][1]}) \n")
+        
+    ero.write("--------------------- \n")
+    ero.write(f"Winner: {winner} \n")
+    ero.write("--------------------- \n")
+    ero.write("--- \n")   
