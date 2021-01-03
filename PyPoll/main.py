@@ -35,7 +35,7 @@ with open(csvpath2, 'r') as election_file:
             count_candidate.append(r1)
         elif r1 == total_votes-1:
             candidates.append(candidate_sorted[(r1-1)])
-            count_candidate.append(r1)
+            count_candidate.append(r1+1)
 
     candidates_len=len(candidates)
     
