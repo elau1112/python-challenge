@@ -39,19 +39,11 @@ with open (csvpath, 'r') as csv_file:
     #The greatest decrease in losses (date and amount) over the entire period
     max_pl = max(plch)
     min_pl = min(plch)
-
-    date1=[]
-    for r1 in range(1,len(plch)):
-        date1.append(date[r1])
-    maxpl_zip = zip(date1, plch)
-
-    mz=list(maxpl_zip)
-    
     for row2 in range(len(plch)):
         if plch[row2] == max_pl:
-            max_pld = mz[row2] 
+            max_pld = [date[row2+1], int(plch[row2])]
         elif plch[row2] == min_pl:
-            min_pld = mz[row2]
+            min_pld = [date[row2+1], int(plch[row2])]
    
     
     print("-----------------------------")
@@ -60,6 +52,12 @@ with open (csvpath, 'r') as csv_file:
     print(f"Total Months: {total_months}")
     print(f"Total: ${int(total_pl)}")
     print(f"Average Change: ${round(ave_plch,2)}")
-    print("Greatest Increase in Profits: " + str(max_pld[0]) + " ($" + str(int(max_pld[1])) + ")")
-    print("Greatest Decrease in Profits: " + str(min_pld[0]) + " ($" + str(int(min_pld[1])) + ")") 
+    print("Greatest Increase in Profits: " + str(max_pld[0]) + " ($" + str(max_pld[1]) + ")")
+    print("Greatest Decrease in Profits: " + str(min_pld[0]) + " ($" + str(min_pld[1]) + ")")
     print("'''")
+
+    output_path = os.path.join('Financial_Analysis1.csv')
+with open(output_path, 'w', newline='') as fao1:
+    csvwriter = csv.writer(fao1, delimiter=',')
+    csvwriter.writerow(["Total Months", "Total", "Average Change", "Greatest Increase in Profits Time", "Greatest Increase in Profits", "Greatest Decrease in Profits Time", "Greatest Decrease in Profits"])
+    csvwriter.writerow([total_months, int(total_pl), round(ave_plch,2), max_pld[0], round(max_pld[1]), min_pld[0], round(min_pld[1])])   
